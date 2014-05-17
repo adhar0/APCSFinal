@@ -44,6 +44,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener{
 		this.add(new JButton("Board"));
 		this.add(back);
 		
+		g = new Game();
+		gr = g.getGrid();
+		
+		
 	}
 	
 	/**
@@ -68,16 +72,20 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener{
 		 * nextPieceX comes from get method in Game
 		 * after drop, save loc in Game
 		 */
-		
+		System.out.println("click");
 		Point p = e.getLocationOnScreen();
 		double xC = p.getX();
 		double yC = p.getY();
 		for(int i = 0; i < 11; i++){
-			System.out.println("jjjj");
-			if(xC >= i*50 + 100 && xC < (i + 1)*50 + 100){
-				if(yC >= i*50 + 50 && yC < (i + 1) * 50 + 50){
+			//System.out.println("jjjj");
+			if(xC >= i*50 + 100 && xC < (i + 1)*50 + 100)
+			{
+				//if(yC >= i*50 + 50 && yC < (i + 1) * 50 + 50)
+				{
 					Piece q = g.getNextPiece();
+					System.out.println("dropNextPiece at " + i);
 					g.dropNextPiece(i);
+					System.out.println("complete dnp");
 					System.out.println(q.getLocation().getX() + ", " + q.getLocation().getY());
 					
 				}

@@ -9,10 +9,10 @@ import Piece.Griddable;
 public class Grid 
 {
 	private GridLocation[][] gl;
-	public static final int UPDIR = 1;
-	public static final int DOWNDIR = -1;
-	public static final int LEFTDIR = -2;
-	public static final int RIGHTDIR = 2;
+	public static final int UP = 1;
+	public static final int DOWN = -1;
+	public static final int LEFT = -2;
+	public static final int RIGHT = 2;
 	
 	/**
 	 * @post A new Grid is created with x columns and y rows and filled with GridLocations
@@ -43,13 +43,13 @@ public class Grid
 		
 		switch(dir){
 
-			case UPDIR:		if(isValid(x, y - 1)) return gl[x][y - 1]; //above
+			case UP:		if(isValid(x, y - 1)) return gl[x][y - 1]; //above
 
-			case DOWNDIR:	if(isValid(x, y + 1)) return gl[x][y + 1]; //below
+			case DOWN:	if(isValid(x, y + 1)) return gl[x][y + 1]; //below
 
-			case RIGHTDIR: 	if(isValid(x + 1, y)) return gl[x + 1][y]; //right
+			case RIGHT: 	if(isValid(x + 1, y)) return gl[x + 1][y]; //right
 
-			case LEFTDIR:	if(isValid(x - 1, y)) return gl[x - 1][y]; //left
+			case LEFT:	if(isValid(x - 1, y)) return gl[x - 1][y]; //left
 			
 			default: 		return null;
 		}

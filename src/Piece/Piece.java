@@ -40,14 +40,18 @@ public abstract class Piece implements Griddable
 	 * @return it's final location
 	 */
 	public GridLocation drop() {//griddable
-		GridLocation below = getGrid().belowSpot(getLocation());
+		GridLocation below = getGrid().adjacentSpot(getLocation(), Grid.DOWN);
 		while(below != null && below.getGriddable() == null)
 		{
 			g.putGriddable(null);
 			move(below);
-			
+			below.putGriddable(this);
+			below = getGrid().adjacentSpot(below, Grid.DOWN);
+			System.out.println("loop");
+			System.out.println(below.getX() + " , " + below.getY());
 		}
-		below.putGriddable(this);
+		System.out.println("exit loop");
+		//below.putGriddable(this);
 		return below;
 	}
 	
